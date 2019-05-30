@@ -9,11 +9,6 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// HelloWorld
-app.get('/hello', function(req,res){
-  res.send("Ciao di nuovo, mondo!");  
-});
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +16,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true })); // permette di parserizzare le chiamate in POST
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
